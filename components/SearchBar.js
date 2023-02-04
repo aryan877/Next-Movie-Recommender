@@ -1,17 +1,15 @@
 import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
-import { setSelectedMovie, setCurrentPage } from '../store/movieSlice';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { Autocomplete } from '@mantine/core';
 import { Search, X } from 'tabler-icons-react';
 
 export default function SearchBar() {
-  const router = useRouter();
   const [searchData, setSearchData] = useState('');
   const [searchResults, setSearchResults] = useState({});
   const inputRef = useRef(null);
+  const router = useRouter();
 
   const { data, loading, error } = useQuery(
     ['search', searchData],
@@ -27,15 +25,15 @@ export default function SearchBar() {
       }
     },
     {
-      enabled: searchData.length > 0,
+      enabled: searchData.length !== undefined,
       refetchOnWindowFocus: false,
     }
   );
 
-  const submitHandler = async ({ searchData }) => {
-    const selectedValue = searchData.value
+  const submitHandler = async (moviename) => {
+    const movieID = searchResults[moviename.value]
+    router.push(`/recommendations/?id=${movieID}`);
     if (inputRef.current) inputRef.current.blur()
-    router.push(`/recommendations/?id=${searchResults[selectedValue]}`);
   };
 
   const handleClick = () => {
@@ -58,7 +56,7 @@ export default function SearchBar() {
       </div> : null}
       rightSectionProps={{ onClick: handleClick }}
       onChange={setSearchData}
-      onItemSubmit={(searchData) => submitHandler({ searchData })}
+      onItemSubmit={(moviename) => submitHandler(moviename)}
       ref={inputRef}
       data={
         Object.keys(searchResults || {})

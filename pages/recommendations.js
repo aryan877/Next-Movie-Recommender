@@ -16,7 +16,7 @@ function MovieList() {
   const { movies, error, selectedMovie } = useSelector(state => state.movie);
   const { notification } = useSelector(state => state.notification);
   const id = router.query.id
-  const p = router.query.p ? router.query.p : 1
+  const p = router.query.p || 1;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,13 +48,12 @@ function MovieList() {
         const { data: { title } } = await axios.get(`${process.env.apiHost}/id?tmdbId=${id}`);
         dispatch(addNotification(pendingNotification(title)))
         const res = await axios.get(`${process.env.apiHost}/recommendations?id=${id}&p=${p}`, { signal: controller.signal });
-        dispatch(addNotification(successNotification()))
         dispatch(setError(''));
-        dispatch(addMovies(res.data.movie_list));
+        dispatch(addNotification(successNotification()))
         dispatch(setSelectedMovie(res.data.searched_movie_title))
+        dispatch(addMovies(res.data.movie_list));
       }
       catch (err) {
-        console.log(err)
         handleError(err);
       }
     }

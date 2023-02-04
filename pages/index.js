@@ -21,8 +21,7 @@ export default function App() {
               }}>
                 <Text align="justify"
                   color="white"
-                  size="lg">Search for your favourite movie and a comprehensive list of similar movies will be generated dynamically. The top 3 pages of these results are presented.
-
+                  size="lg">Discover your favorite movie and receive a dynamically generated list of related films, with the top 3 pages of results presented. This search is powered by a sophisticated machine learning algorithm written in Python, providing accurate and relevant movie recommendations.
                 </Text>
                 <Text align="justify"
                   color="white"

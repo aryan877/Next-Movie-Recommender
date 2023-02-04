@@ -20,7 +20,7 @@ function MovieCard({ movie, status }) {
 
         {/* movie poster */}
         <div style={{ position: "relative", width: "100%", height: "320px" }}>
-          <Image alt={""} layout="fill" objectFit="cover" src={'https://image.tmdb.org/t/p/w300' + movie.poster_path} />
+          <Image alt={""} layout="fill" objectFit="cover" src={'https://image.tmdb.org/t/p/w342' + movie.poster_path} />
         </div>
         {/* movie poster */}
 
