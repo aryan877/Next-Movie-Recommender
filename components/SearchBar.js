@@ -42,8 +42,8 @@ export default function SearchBar() {
 
   return (
     <Autocomplete
-      placeholder="Search"
-      style={{ width: "40%" }}
+      placeholder='Search'
+      style={{ width: '40%' }}
       required
       limit='10'
       icon={<Search />}

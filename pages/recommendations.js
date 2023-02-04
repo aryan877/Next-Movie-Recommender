@@ -78,7 +78,7 @@ function MovieList() {
       <Alert icon={<AlertCircle
         size={16}
         color={'red'}
-      />} title="Bummer!" color="red">
+      />} title='Bummer!' color='red'>
         {error}
       </Alert>
     );
@@ -91,7 +91,7 @@ function MovieList() {
       </Title>
       <SimpleGrid
         cols={3}
-        spacing="lg"
+        spacing='lg'
         breakpoints={[
           { maxWidth: 'xl', cols: 3, spacing: 'xl' },
           { maxWidth: 'lg', cols: 3, spacing: 'lg' },
@@ -101,7 +101,7 @@ function MovieList() {
         ]}>
         {movies.map((movie) => { return <MovieCard key={movie.id} movie={movie} status={notification.type} /> })}
       </SimpleGrid>
-      <Pagination mt="xl" position="center" color="red"
+      <Pagination mt='xl' position='center' color='red'
         page={parseInt(p)}
         onChange={handlePageChange}
         total={3}

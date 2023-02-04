@@ -27,7 +27,7 @@ const StatusNotification = () => {
       {notification.type && (
         <Notification
           color={
-            notification.type === NOTIFICATION_TYPE.SUCCESS ? "green" : "red"
+            notification.type === NOTIFICATION_TYPE.SUCCESS ? 'green' : 'red'
           }
           title={notification.title}
           disallowClose

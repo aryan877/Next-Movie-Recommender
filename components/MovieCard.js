@@ -16,16 +16,16 @@ function MovieCard({ movie, status }) {
   return (
     <Skeleton key={movie.id} visible={status === NOTIFICATION_TYPE.PENDING}>
 
-      <Card key={movie.id} style={{ cursor: "pointer" }} shadow="sm" p="lg" radius="sm">
+      <Card key={movie.id} style={{ cursor: 'pointer' }} shadow='sm' p='lg' radius='sm'>
 
         {/* movie poster */}
-        <div style={{ position: "relative", width: "100%", height: "320px" }}>
-          <Image alt={""} layout="fill" objectFit="cover" src={'https://image.tmdb.org/t/p/w342' + movie.poster_path} />
+        <div style={{ position: 'relative', width: '100%', height: '320px' }}>
+          <Image alt={''} layout='fill' objectFit='cover' src={'https://image.tmdb.org/t/p/w342' + movie.poster_path} />
         </div>
         {/* movie poster */}
 
         {/* movie title, movie votes, movie rating, movie genres */}
-        <Group position="apart" direction="column" my={8} mt={16}>
+        <Group position='apart' direction='column' my={8} mt={16}>
           <Title order={4}>{movie.original_title} ( {movie.release_date?.slice(0, 4)} )</Title>
           <Group>
             <ReactStars half count={5} value={movie.vote_average / 2} size={18} color2={'#F00'} />
@@ -42,12 +42,12 @@ function MovieCard({ movie, status }) {
 
         {/* movie description */}
         <Spoiler maxHeight={120} my={8}
-          showLabel="Show more" hideLabel="Hide">
+          showLabel='Show more' hideLabel='Hide'>
           Plot: {movie.overview}
         </Spoiler>
         {/* movie description */}
 
-        <Button onClick={() => { displayMovieRecommendations(movie.id, movie.original_title) }} disabled={movie.id == id} variant="light" color="red" fullWidth>
+        <Button onClick={() => { displayMovieRecommendations(movie.id, movie.original_title) }} disabled={movie.id == id} variant='light' color='red' fullWidth>
           {movie.id == id ? 'Selected Film' : 'View Similar Movies'}
         </Button>
 

@@ -14,7 +14,7 @@ export default function App(props) {
     <>
       <Head>
         <title>CineMatch - Your Ultimate Movie Recommendation Destination</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
       </Head>
       <QueryClientProvider client={queryClient}>
         <MantineProvider
