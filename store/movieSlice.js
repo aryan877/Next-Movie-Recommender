@@ -1,11 +1,13 @@
 const { createSlice } = require('@reduxjs/toolkit');
+import { movies } from './dummy';
+import { selectedMovie } from './dummy';
 
 const movieSlice = createSlice({
   name: 'movie',
   initialState: {
-    movies: [],
+    movies: movies,
     error: '',
-    selectedMovie: '',
+    selectedMovie: selectedMovie,
     currentPage: 1
   },
   reducers: {

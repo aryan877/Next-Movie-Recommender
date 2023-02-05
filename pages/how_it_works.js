@@ -3,29 +3,20 @@ import { Text, Title } from '@mantine/core';
 import { ExternalLink } from 'tabler-icons-react';
 import { Anchor } from '@mantine/core';
 
-
 function Working() {
   return (
     <>
       <Title order={1}>How It Works</Title>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Anchor my={20} href='https://github.com/aryan877/Next-Movie-Recommender' target="_blank">
-          <span style={{ display: 'inline-block', marginRight: '8px' }}>
-            <ExternalLink />
-          </span>
-          <span style={{ display: 'inline-block' }}>
-            <Text align='justify' color='blue' size='lg'>Project Github Repo (Frontend)</Text>
-          </span>
+        <Anchor align='justify' color='blue' size='lg' my={20} href='https://github.com/aryan877/Next-Movie-Recommender' target="_blank">
+          Project Github Repo (Frontend)
+          <ExternalLink />
         </Anchor>
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Anchor mb={20} href='https://github.com/aryan877/recommender-script' target="_blank">
-          <span style={{ display: 'inline-block', marginRight: '8px' }}>
-            <ExternalLink />
-          </span>
-          <span style={{ display: 'inline-block' }}>
-            <Text align='justify' color='blue' size='lg'>Project Github Repo (Backend)</Text>
-          </span>
+        <Anchor align='justify' color='blue' size='lg' mb={20} href='https://github.com/aryan877/recommender-script' target="_blank">
+          Project Github Repo (Backend)
+          <ExternalLink />
         </Anchor>
       </div>
       <Text my={20} align='justify'
@@ -37,8 +28,6 @@ function Working() {
         size='lg'>
         I had the opportunity to work on this algorithm during my internship under the guidance of Shrit Kanike Pratap, a scientist at DRDO. He mentored me and taught me the intricacies of machine learning and helped me understand how to design a recommendation algorithm using collaborative and content-based filtering. It was an incredible experience to work with such a talented and experienced scientist and I am grateful for the knowledge and experience I gained during my time there.
       </Text>
-
-
     </>
   )
 }

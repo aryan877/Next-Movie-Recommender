@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 const StatusNotification = () => {
   const { notification } = useSelector(state => state.notification);
+  const { selectedMovie } = useSelector(state => state.movie);
   const dispatch = useDispatch();
   const router = useRouter()
 
@@ -29,10 +30,10 @@ const StatusNotification = () => {
           color={
             notification.type === NOTIFICATION_TYPE.SUCCESS ? 'green' : 'red'
           }
-          title={notification.title}
+          title={`${notification.title} ${notification.type === NOTIFICATION_TYPE.PENDING && `for ${selectedMovie}`}`}
           disallowClose
         >
-          {`${notification.message} `}
+          {notification.message}
         </Notification>
       )}
     </>

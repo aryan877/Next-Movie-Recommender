@@ -6,11 +6,11 @@ export const NOTIFICATION_TYPE = {
   ERROR: 'ERROR'
 }
 
-export const pendingNotification = (title) => {
+export const pendingNotification = () => {
   return {
     id: v4(),
     type: NOTIFICATION_TYPE.PENDING,
-    title: `Searching for Similar Movies ${title}`,
+    title: `Searching for Similar Movies`,
     message: "Hang tight, we're running an algorithm to find movies that match your taste"
   }
 

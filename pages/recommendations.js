@@ -45,8 +45,9 @@ function MovieList() {
     const controller = new AbortController();
     const fetchData = async () => {
       try {
+        dispatch(addNotification(pendingNotification()))
         const { data: { title } } = await axios.get(`${process.env.apiHost}/id?tmdbId=${id}`);
-        dispatch(addNotification(pendingNotification(title)))
+        dispatch(setSelectedMovie(title))
         const res = await axios.get(`${process.env.apiHost}/recommendations?id=${id}&p=${p}`, { signal: controller.signal });
         dispatch(setError(''));
         dispatch(addNotification(successNotification()))
@@ -86,7 +87,7 @@ function MovieList() {
 
   return (
     <>
-      <Title order={3} mb={16}>
+      <Title order={4} mb={16}>
         {notification.type === NOTIFICATION_TYPE.PENDING ? `Generating Recommendations (page ${p})` : `Search Results for ${selectedMovie} (page ${p})`}
       </Title>
       <SimpleGrid
