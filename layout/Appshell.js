@@ -1,6 +1,5 @@
 import {
   AppShell,
-  useMantineTheme,
   Container
 } from '@mantine/core';
 import { useWindowScroll } from '@mantine/hooks';
@@ -9,7 +8,6 @@ import Navbar from './Navbar';
 import StatusNotification from '../components/ StatusNotification';
 
 export function Layout({ children }) {
-  const theme = useMantineTheme();
   const [scroll, scrollTo] = useWindowScroll();
 
   return (
@@ -26,7 +24,7 @@ export function Layout({ children }) {
       },
     }
     }
-      header={< Navbar theme={theme} ></Navbar >}>
+      header={< Navbar></Navbar >}>
       {/* pages */}
       <Container styles={{
         root: {

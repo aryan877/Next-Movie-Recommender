@@ -27,6 +27,11 @@ const StatusNotification = () => {
     <>
       {notification.type && (
         <Notification
+          styles={{
+            root: {
+              maxWidth: '50vw',
+            }
+          }}
           color={
             notification.type === NOTIFICATION_TYPE.SUCCESS ? 'green' : 'red'
           }

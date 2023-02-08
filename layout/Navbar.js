@@ -1,46 +1,49 @@
 import {
-  Header, MediaQuery, Burger, Image, Menu, Divider, Indicator, Group, Flex
+  Header, MediaQuery, Image, Menu, Divider, Indicator, Group, Center
 } from '@mantine/core';
 import { Avatar } from '@mantine/core';
 import { useState } from 'react';
+import { Home } from 'tabler-icons-react';
 import SearchBar from '../components/SearchBar';
 import Link from 'next/link';
 
-function Navbar({ theme }) {
+function Navbar() {
 
-  const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <>
       <Header height={70} p={16}>
         <div style={{ display: 'flex', alignItems: 'center', height: '100%', justifyContent: 'space-between' }}>
 
-          {/* burger menu */}
-          <div style={{ display: 'flex', alignItems: 'center', height: '100%', justifyContent: 'space-between' }}>
-            <Burger
-              opened={navbarOpen}
-              onClick={() => setNavbarOpen((o) => !o)}
-              size={24}
-              color={theme.colors.gray[6]}
-              mr={8}
-            />
-            {/* logo */}
-            <MediaQuery
-              query="(max-width: 800px)"
-              styles={{ display: 'none' }}
-            >
-              <div>
-                <Link href='/' >
-                  <Image style={{ cursor: 'pointer' }} alt={''}
-                    height={70} src='/logo.png' />
-                </Link>
-              </div>
-            </MediaQuery>
-          </div>
+          {/* home button for mobiles and tablets */}
+          <MediaQuery
+            query="(min-width: 801px)"
+            styles={{ display: 'none' }}
+          >
+            <Center mr={16} p={0}>
+              <Link href='/'>
+                <Home />
+              </Link>
+            </Center>
+          </MediaQuery>
+
+
+          {/* logo for desktop */}
+          <MediaQuery
+            query="(max-width: 800px)"
+            styles={{ display: 'none' }}
+          >
+            <Center>
+              <Link href='/' >
+                <Image style={{ cursor: 'pointer' }} alt={''}
+                  height={70} src='/logo.png' />
+              </Link>
+            </Center>
+          </MediaQuery>
 
           <SearchBar />
 
           {/* profile menu */}
-          <Menu ml={8} control={<Group position='center'>
+          <Menu ml={16} control={<Group position='center'>
             <Indicator inline color='red'>
               <Avatar
 

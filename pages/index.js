@@ -28,7 +28,7 @@ export default function App() {
 
           <Grid.Col span={1}>
             <MediaQuery
-              query="(max-width: 800px)" styles={{ marginTop: '32px', padding: '0px', width: '100%' }}>
+              query="(max-width: 800px)" styles={{ marginTop: '110px', padding: '0px', width: '100%' }}>
               <Container styles={{ root: { width: '80%' } }} p={16} mt={210}>
                 <Text align='justify'
                   color='white'
