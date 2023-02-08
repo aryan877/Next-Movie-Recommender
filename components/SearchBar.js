@@ -14,7 +14,7 @@ export default function SearchBar() {
   const { data, loading, error } = useQuery(
     ['search', searchData],
     async (_, searchData) => {
-      const res = await axios.get(`${process.env.apiHost}/search/?name=${_.queryKey[1]}`);
+      const res = await axios.get(`${process.env.apiHost}/search?name=${_.queryKey[1]}`);
       if (res.status === 200) {
         setSearchResults(res.data.reduce((sr, { title, tmdbId }) => {
           sr[title] = tmdbId

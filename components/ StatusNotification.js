@@ -30,7 +30,7 @@ const StatusNotification = () => {
           color={
             notification.type === NOTIFICATION_TYPE.SUCCESS ? 'green' : 'red'
           }
-          title={`${notification.title} ${notification.type === NOTIFICATION_TYPE.PENDING && `for ${selectedMovie}`}`}
+          title={`${notification.title} ${notification.type === NOTIFICATION_TYPE.PENDING ? `for ${selectedMovie}` : ''}`}
           disallowClose
         >
           {notification.message}
