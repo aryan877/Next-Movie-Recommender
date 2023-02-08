@@ -91,7 +91,7 @@ function MovieList() {
   return (
     <>
       <Title order={4} mb={16}>
-        {notification.type === NOTIFICATION_TYPE.PENDING ? `Generating Recommendations (page ${p})` : `Search Results for ${selectedMovie} (page ${p})`}
+        {notification.type === NOTIFICATION_TYPE.PENDING ? `Generating Recommendations (page ${p})` : `Movies Similar to ${selectedMovie} (page ${p})`}
       </Title>
       <SimpleGrid
         cols={3}
