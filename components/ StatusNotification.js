@@ -35,7 +35,8 @@ const StatusNotification = () => {
         >
           {notification.message}
         </Notification>
-      )}
+      )
+      }
     </>
   );
 

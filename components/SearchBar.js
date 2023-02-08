@@ -4,6 +4,9 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { Autocomplete } from '@mantine/core';
 import { Search, X } from 'tabler-icons-react';
+import {
+  MediaQuery
+} from '@mantine/core';
 
 export default function SearchBar() {
   const [searchData, setSearchData] = useState('');
@@ -41,26 +44,31 @@ export default function SearchBar() {
   }
 
   return (
-    <Autocomplete
-      placeholder='Search'
-      style={{ width: '40%' }}
-      required
-      limit='10'
-      icon={<Search />}
-      value={searchData}
-      rightSection={searchData.length > 0 ? <div style={{
-        display: 'flex',
-        alignItems: 'center'
-      }}>
-        <X style={{ cursor: 'pointer' }} />
-      </div> : null}
-      rightSectionProps={{ onClick: handleClick }}
-      onChange={setSearchData}
-      onItemSubmit={(moviename) => submitHandler(moviename)}
-      ref={inputRef}
-      data={
-        Object.keys(searchResults || {})
-      }
-    />
+
+
+    <MediaQuery
+      query="(max-width: 800px)" styles={{ width: '80%' }}>
+      <Autocomplete
+        placeholder='Search'
+        required
+        styles={{ root: { width: '40%' } }}
+        limit='10'
+        icon={<Search />}
+        value={searchData}
+        rightSection={searchData.length > 0 ? <div style={{
+          display: 'flex',
+          alignItems: 'center'
+        }}>
+          <X style={{ cursor: 'pointer' }} />
+        </div> : null}
+        rightSectionProps={{ onClick: handleClick }}
+        onChange={setSearchData}
+        onItemSubmit={(moviename) => submitHandler(moviename)}
+        ref={inputRef}
+        data={
+          Object.keys(searchResults || {})
+        }
+      />
+    </MediaQuery>
   );
 }

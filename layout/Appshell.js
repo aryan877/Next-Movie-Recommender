@@ -15,21 +15,34 @@ export function Layout({ children }) {
   return (
     <AppShell styles={{
       main: {
+        height: '100%',
         padding: '0px',
       },
-    }} header={<Navbar theme={theme}></Navbar>}>
+      root: {
+        height: '100%',
+      },
+      body: {
+        height: '100%',
+      },
+    }
+    }
+      header={< Navbar theme={theme} ></Navbar >}>
       {/* pages */}
-      <div style={{ position: 'relative' }}>
-        <Container py={theme.spacing.xl}>
+      <Container styles={{
+        root: {
+          position: 'relative',
+          width: '100%',
+          maxWidth: '100%',
+          height: '100%',
+        }
+      }} >
+        <Container py={16} >
           {children}
-        </Container>
-      </div>
-      {/* notification component */}
-      <Affix position={{ bottom: 20, left: 20, }}>
-        <StatusNotification />
-      </Affix>
+        </Container >
+      </Container>
+
       {/* scroll to top */}
-      <Affix position={{ bottom: 20, right: 20, }}>
+      < Affix position={{ bottom: 20, right: 20, }}>
         <Transition transition='slide-up' mounted={scroll.y > 0}>
           {(transitionStyles) => (
             <Button
@@ -41,7 +54,12 @@ export function Layout({ children }) {
             </Button>
           )}
         </Transition>
-      </Affix>
+      </Affix >
+
+      {/* notification component */}
+      < Affix position={{ bottom: 20, left: 20, }}>
+        <StatusNotification />
+      </Affix >
     </AppShell >
   );
 }

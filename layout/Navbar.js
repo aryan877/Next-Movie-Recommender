@@ -1,5 +1,5 @@
 import {
-  Header, MediaQuery, Burger, Image, Menu, Divider, Indicator, Group
+  Header, MediaQuery, Burger, Image, Menu, Divider, Indicator, Group, Flex
 } from '@mantine/core';
 import { Avatar } from '@mantine/core';
 import { useState } from 'react';
@@ -11,33 +11,36 @@ function Navbar({ theme }) {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <>
-      <Header height={70} p='md'>
-
+      <Header height={70} p={16}>
         <div style={{ display: 'flex', alignItems: 'center', height: '100%', justifyContent: 'space-between' }}>
 
           {/* burger menu */}
-          <MediaQuery largerThan='sm' styles={{ display: 'none' }}>
+          <div style={{ display: 'flex', alignItems: 'center', height: '100%', justifyContent: 'space-between' }}>
             <Burger
               opened={navbarOpen}
               onClick={() => setNavbarOpen((o) => !o)}
-              size='sm'
+              size={24}
               color={theme.colors.gray[6]}
-              mr='xl'
+              mr={8}
             />
-          </MediaQuery>
-
-          {/* logo */}
-          <MediaQuery smallerThan='sm' styles={{ display: 'none' }}>
-            <Link href='/' >
-              <Image style={{ cursor: 'pointer' }} alt={''}
-                height={70} src='/logo.png' />
-            </Link>
-          </MediaQuery>
+            {/* logo */}
+            <MediaQuery
+              query="(max-width: 800px)"
+              styles={{ display: 'none' }}
+            >
+              <div>
+                <Link href='/' >
+                  <Image style={{ cursor: 'pointer' }} alt={''}
+                    height={70} src='/logo.png' />
+                </Link>
+              </div>
+            </MediaQuery>
+          </div>
 
           <SearchBar />
 
           {/* profile menu */}
-          <Menu control={<Group position='center'>
+          <Menu ml={8} control={<Group position='center'>
             <Indicator inline color='red'>
               <Avatar
 
