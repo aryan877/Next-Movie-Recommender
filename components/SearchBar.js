@@ -44,8 +44,6 @@ export default function SearchBar() {
   }
 
   return (
-
-
     <MediaQuery
       query="(max-width: 800px)" styles={{ width: '80%' }}>
       <Autocomplete

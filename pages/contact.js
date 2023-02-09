@@ -7,11 +7,11 @@ function Contact() {
       <Title order={1}>Contact Info</Title>
       <Text my={40} align='justify'
         color='white'
-        size='lg'>Email: aryankumar877@gmail.com
+        size='md'>Email: aryankumar877@gmail.com
       </Text>
       <Text align='justify'
         color='white'
-        size='lg'>
+        size='md'>
         Feel free to reach out if you want to know more about my project or discuss potential opportunities.
       </Text>
     </>
