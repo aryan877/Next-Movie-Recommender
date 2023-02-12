@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import axios from 'axios';
@@ -16,6 +16,13 @@ export default function SearchBar() {
   const router = useRouter();
   const debouncedSearchTerm = useDebounce(searchData, 200);
 
+  useEffect(() => {
+    if (searchData.length === 0) {
+      setSearchResults({});
+    }
+  }, [searchData]);
+
+
   const { data, loading, error } = useQuery(
     ['search', debouncedSearchTerm],
     async (_, searchData) => {
@@ -30,7 +37,7 @@ export default function SearchBar() {
       }
     },
     {
-      enabled: searchData.length !== undefined,
+      enabled: debouncedSearchTerm.length > 0,
       refetchOnWindowFocus: false,
     }
   );
