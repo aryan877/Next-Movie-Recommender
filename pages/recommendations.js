@@ -45,20 +45,22 @@ function MovieList() {
     const controller = new AbortController();
     const fetchData = async () => {
       dispatch(addNotification(pendingNotification()))
-      axios.get(`${process.env.apiHost}/id?tmdbId=${id}`)
-        .then(({ data: { title } }) => {
-          dispatch(setSelectedMovie(title));
-        })
-        .catch(err => handleError(err));
+      try {
+        const { data: { title } } = await axios.get(`${process.env.apiHost}/id?tmdbId=${id}`);
+        dispatch(setSelectedMovie(title));
+      } catch (err) {
+        handleError(err);
+      }
 
-      axios.get(`${process.env.apiHost}/recommendations?id=${id}&p=${p}`, { signal: controller.signal })
-        .then(({ data: { searched_movie_title, movie_list } }) => {
-          dispatch(setError(''));
-          dispatch(addNotification(successNotification()))
-          dispatch(setSelectedMovie(searched_movie_title))
-          dispatch(addMovies(movie_list));
-        })
-        .catch(err => handleError(err));
+      try {
+        const { data: { searched_movie_title, movie_list } } = await axios.get(`${process.env.apiHost}/recommendations?id=${id}&p=${p}`, { signal: controller.signal });
+        dispatch(setError(''));
+        dispatch(addNotification(successNotification()))
+        dispatch(setSelectedMovie(searched_movie_title))
+        dispatch(addMovies(movie_list));
+      } catch (err) {
+        handleError(err);
+      }
     }
 
     fetchData();
@@ -66,6 +68,7 @@ function MovieList() {
       controller.abort()
     }
   }, [dispatch, handleError, id, p]);
+
 
   useEffect(() => {
     return () => {
