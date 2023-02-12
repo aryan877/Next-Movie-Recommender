@@ -2,7 +2,6 @@ import {
   Header, MediaQuery, Image, Menu, Divider, Indicator, Group, Center
 } from '@mantine/core';
 import { Avatar } from '@mantine/core';
-import { useState } from 'react';
 import { Home } from 'tabler-icons-react';
 import SearchBar from '../components/SearchBar';
 import Link from 'next/link';

@@ -7,15 +7,17 @@ import { Search, X } from 'tabler-icons-react';
 import {
   MediaQuery
 } from '@mantine/core';
+import useDebounce from '../hooks/debounce';
 
 export default function SearchBar() {
   const [searchData, setSearchData] = useState('');
   const [searchResults, setSearchResults] = useState({});
   const inputRef = useRef(null);
   const router = useRouter();
+  const debouncedSearchTerm = useDebounce(searchData, 200);
 
   const { data, loading, error } = useQuery(
-    ['search', searchData],
+    ['search', debouncedSearchTerm],
     async (_, searchData) => {
       const res = await axios.get(`${process.env.apiHost}/search?name=${_.queryKey[1]}`);
       if (res.status === 200) {
