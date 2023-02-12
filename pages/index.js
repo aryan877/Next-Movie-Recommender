@@ -38,7 +38,7 @@ export default function App() {
                 <Text align='justify'
                   color='white'
                   mt={16}
-                  size='sm'> Want to discover similar movies? Start by searching for &apos;Annabelle&apos; for a spine-chilling horror experience. Delve into mystery and suspense with &apos;Get Out&apos; or &apos;The Babadook&apos;. Take a trip through the cosmos with &apos;Interstellar&apos;. And for fans of Leo DiCaprio, &apos;Inception&apos; is a must-search for discovering similar mind-bending movies.
+                  size='md'> Want to discover similar movies? Start by searching for &apos;Annabelle&apos; for a spine-chilling horror experience. Delve into mystery and suspense with &apos;Get Out&apos; or &apos;The Babadook&apos;. Take a trip through the cosmos with &apos;Interstellar&apos;. And for fans of Leo DiCaprio, &apos;Inception&apos; is a must-search for discovering similar mind-bending movies.
                 </Text>
               </Container>
             </MediaQuery>
