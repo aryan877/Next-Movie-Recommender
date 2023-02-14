@@ -32,7 +32,7 @@ export default function App() {
               <Container styles={{ root: { width: '80%' } }} p={16} mt={210}>
                 <Text align='justify'
                   color='white'
-                  size='lg'>Search over 6000+ English movies and receive a dynamically generated list of similar films. This search is powered by a sophisticated machine learning algorithm written in Python, providing accurate and relevant movie recommendations.
+                  size='lg'>Search over 6000+ English Movies and receive a dynamically generated list of similar films. The backend is powered by a machine learning algorithm written in Flask, providing accurate movie recommendations. Frontend is built using Next.js. The app is hosted on AWS and Vercel.
                 </Text>
 
                 {/* <Text align='justify'
