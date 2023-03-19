@@ -56,7 +56,7 @@ export default function SearchBar() {
     <MediaQuery
       query="(max-width: 800px)" styles={{ width: '80%' }}>
       <Autocomplete
-        placeholder="Search... try 'World War Z'"
+        placeholder="Search... try 'Spider-Man 2'"
         required
         styles={{ root: { width: '40%' } }}
         limit='10'
